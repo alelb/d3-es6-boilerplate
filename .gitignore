@@ -1,0 +1,15 @@
+.bash_history
+.local/
+.config/
+.cache/
+.idea/
+bower_components/
+node_modules/
+.vscode/
+
+bundle/
+build/
+dist/
+
+*.log
+npm-debug.log*
