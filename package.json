@@ -1,9 +1,17 @@
 {
   "name": "d3-es6-boilerplate",
   "version": "0.1.0",
-  "description": "",  
+  "description": "",
+  "directories": {
+    "lib": "bundle"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "reset": "shx rm -rf node_modules/ *.log",
+    "clean": "shx rm -rf *.log $npm_package_directories_lib",
+    "prebundle": "npm run clean && shx mkdir -p $npm_package_directories_lib",
+    "bundle": "rollup -c",
+    "lint": "eslint scripts/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -14,5 +22,31 @@
   "bugs": {
     "url": "https://github.com/alelb/d3-es6-boilerplate/issues"
   },
-  "homepage": "https://github.com/alelb/d3-es6-boilerplate#readme"
+  "homepage": "https://github.com/alelb/d3-es6-boilerplate#readme",
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.22.0",
+    "eslint": "^3.12.2",
+    "eslint-config-walmart": "^1.1.0",
+    "eslint-plugin-filenames": "^1.1.0",
+    "rollup": "^0.41.6",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "shx": "^0.2.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": []
+  },
+  "eslintConfig": {
+    "extends": "walmart/configurations/es6-browser",
+    "rules": {
+      "semi": "off",
+      "no-console": "off",
+      "max-statements": "warn"
+    },
+    "globals": {}
+  }
 }
